@@ -29,8 +29,8 @@ public:
 =                                 Constructeurs                                =
 ================================================================================
 */
-  fasta();
-  fasta(std::string header, std::string sequence, size_t longueur, size_t position);
+  Fasta();
+  Fasta(std::string header, std::string sequence, size_t longueur, size_t position);
 
 /*
 ================================================================================
@@ -60,8 +60,10 @@ public:
   bool isBlank(char c) const;
 
   //Autres
-
-
+  std::vector<Fasta> extractionHeader() const;
+  std::vector<Fasta> extractionSequence() const;
+  std::vector<Fasta> extractionPosition() const; 
+  std:: vector<Fasta> extractionLongueur() const;
 
 };
 

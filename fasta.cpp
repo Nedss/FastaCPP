@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -63,3 +64,8 @@ bool isNucl(char c, bool degenerate=TRUE){}
 bool isBlank(char c);
 
 //Autres
+vector<Fasta> extractionHeader(){}
+vector<Fasta> extractionHeader() const{}
+vector<Fasta> extractionSequence() const{}
+vector<Fasta> extractionPosition() const{}
+vector<Fasta> extractionLongueur() const{}
