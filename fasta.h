@@ -44,10 +44,10 @@ public:
   size_t getLongueur() const;
   size_t getPos() const;
   //SET
-  void setHeader(string header);
-  void setSequence(string sequence);
-  void setLongueur(int longueur);
-  void setPos(int pos);
+  void setHeader(std::string header);
+  void setSequence(std::string sequence);
+  void setLongueur(size_t longueur);
+  void setPosition(size_t pos);
 
 /*
 ================================================================================
@@ -56,8 +56,8 @@ public:
 */
 
   //Verifications
-  bool isFasta(const std::string &fich, int argc) const;
-  bool isNucl(char c, bool degenerate=TRUE) const;
+  static bool isFasta(char** argv, int argc);
+  bool isNucl(char c, bool degenerate) const;
   bool isBlank(char c) const;
 
   //Autres

@@ -7,7 +7,6 @@
 
 using namespace std;
 
-class Fasta{
 
 /*
 ================================================================================
@@ -15,11 +14,11 @@ class Fasta{
 ================================================================================
 */
   Fasta::Fasta(){}
-  Fasta::Fasta(string header, string sequence, int longueur, int position){
-    this->header=header;
-    this->sequence=sequence;
-    this->longueur=longueur;
-    this->position=position;
+  Fasta::Fasta(string header, string sequence, size_t longueur, size_t position){
+    setHeader(header);
+    setSequence(sequence);
+    setLongueur(longueur);
+    setPosition(position);
 }
 
 /*
@@ -28,30 +27,30 @@ class Fasta{
 ================================================================================
 */
 //GET
-  string getHeader(){
+  string Fasta::getHeader() const{
     return header;
   }
-  string getSequence(){
+  string Fasta::getSequence() const{
     return sequence;
   }
-  int getLongueur(){
+  size_t Fasta::getLongueur() const{
     return longueur;
   }
-  int getPos(){
+  size_t Fasta::getPos() const{
     return position;
   }
   //SET
-  void setHeader(string header){
+  void Fasta::setHeader(string header){
     this->header=header;
   }
-  void setSequence(string sequence){
+  void Fasta::setSequence(string sequence){
     this->sequence=sequence;
   }
-  void setPos(int position){
+  void Fasta::setPosition(size_t position){
     this->position=position;
   }
-  void setLongueur(int longueur){
-    this->position=position;
+  void Fasta::setLongueur(size_t longueur){
+    this->longueur=longueur;
   }
 
 /*
@@ -61,56 +60,46 @@ class Fasta{
 */
 
 //Verifications
-<<<<<<< HEAD
-string cheminFasta(){
-  string fichier = " ";
-  cout<<"Veuillez rentrer le chemin du fichier"<<endl;
-  cin >> fichier;
-  return fichier;
-}
-bool isFasta(string fichier) const{
-  
-  return
-}
-bool isNucl(char c, bool degenerate=TRUE){}
-bool isBlank(char c);
-
-//Autres
-
-=======
-  bool isFasta(const string &fich, int argc) const{
-    ifstream fichier(fich.c_str());
-    if (argc != 2 && fichier){
-      return TRUE;
+  bool Fasta::isFasta(char** argv, int argc){
+    string ext = strrchr(argv[1], '.');
+    if (argc != 2){
+      return false;
     }
-    return FALSE;
+    //Verifications fichier Fasta
+      //Verification extension
+    cout<<ext<<endl;
+    if (ext != ".fasta" && ext != ".fa"){
+        return false;
+      }
+      // Vérification existence fichier
+      //if (argv[1]){
+      //}
+    return true;
   }
-  bool isNucl(char c, bool degenerate=TRUE){}
-  bool isBlank(char c);
 
+  bool Fasta::isNucl(char c, bool degenerate=true) const{}
+  bool Fasta::isBlank(char c) const{}
 
 //Autres
-
-  void extractionFasta(char *argv[]){
+/*  void extractionFasta(char *argv[],vector<Fasta> list_fasta){
     size_t compteur =0;
-    string contenu =" ";
+    string contenu = NULL;
     ifstream fichier(argv[1], ios::in);
     if (fichier){
       while (getline(fichier, contenu)){
+        this->f_tmp();
         if (contenu[0] ==">"){
+
           // Ajouter ici la partie du brouillon sur l'itération de classe
         }
       }
     }
   }
-
+*/
 /*
 vector<Fasta> extractionHeader(){}
->>>>>>> 84d9de684bc35bb9d6f24d67fff4321a920dd7ff
 vector<Fasta> extractionHeader() const{}
 vector<Fasta> extractionSequence() const{}
 vector<Fasta> extractionPosition() const{}
 vector<Fasta> extractionLongueur() const{}
 */
-
-}
