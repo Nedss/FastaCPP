@@ -18,6 +18,7 @@ private:
   std::string sequence;
   size_t longueur;
   size_t position;
+  std::vector<Fasta> listFasta;
   std::vector<std::string>list_sequence;
   std::vector<std::string>list_header;
   std::vector<size_t>list_longueur;
@@ -55,14 +56,16 @@ public:
 */
 
   //Verifications
-  bool isFasta() const;
+  static std::string cheminFasta() const;
+  static bool isFasta() const;
   bool isNucl(char c, bool degenerate=TRUE) const;
   bool isBlank(char c) const;
 
   //Autres
+  std::vector<Fasta>
   std::vector<Fasta> extractionHeader() const;
   std::vector<Fasta> extractionSequence() const;
-  std::vector<Fasta> extractionPosition() const; 
+  std::vector<Fasta> extractionPosition() const;
   std:: vector<Fasta> extractionLongueur() const;
 
 };

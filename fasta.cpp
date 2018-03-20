@@ -59,12 +59,21 @@ void setLongueur(int longueur){
 */
 
 //Verifications
-bool isFasta() const{}
+string cheminFasta(){
+  string fichier = " ";
+  cout<<"Veuillez rentrer le chemin du fichier"<<endl;
+  cin >> fichier;
+  return fichier;
+}
+bool isFasta(string fichier) const{
+  
+  return
+}
 bool isNucl(char c, bool degenerate=TRUE){}
 bool isBlank(char c);
 
 //Autres
-vector<Fasta> extractionHeader(){}
+
 vector<Fasta> extractionHeader() const{}
 vector<Fasta> extractionSequence() const{}
 vector<Fasta> extractionPosition() const{}
