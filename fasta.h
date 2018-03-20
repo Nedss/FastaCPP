@@ -56,18 +56,18 @@ public:
 */
 
   //Verifications
-  static std::string cheminFasta() const;
-  static bool isFasta() const;
+  bool isFasta(const std::string &fich, int argc) const;
   bool isNucl(char c, bool degenerate=TRUE) const;
   bool isBlank(char c) const;
 
   //Autres
-  std::vector<Fasta>
+  void extractionFasta(char *argv[]);
+  /*
   std::vector<Fasta> extractionHeader() const;
   std::vector<Fasta> extractionSequence() const;
   std::vector<Fasta> extractionPosition() const;
   std:: vector<Fasta> extractionLongueur() const;
-
+  */
 };
 
 #endif
