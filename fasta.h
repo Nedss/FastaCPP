@@ -39,7 +39,7 @@ public:
 */
   //GET
   std::string getHeader() const;
-  std::string getSequence() const;
+  std::string getSequence(const std::string &myFile);
   size_t getLongueur() const;
   size_t getPos() const;
   std::string getType() const;
@@ -57,24 +57,27 @@ public:
 */
 
   //Verifications
+  /*
+  Vérification du fichier avec arguments.
   static bool isFasta(char** argv, int argc);
-  static bool isNucl(char c, bool degenerate);
+  */
+
+  static bool isFasta(std::string locaFichier);
+  static bool fastaExist(const std::string& myFile);
+  static bool isNucl(char c, bool degenerated);
   static bool isBlank(char c);
-  static bool isADN(char c);
-  static bool isARN(char c);
 
   //Autres
-  static std::vector<Fasta> extractionFasta(std::string &the_file);
+  static std::vector<Fasta> extractionFasta(std::string &myFile);
   static std::string nomFichier();
-  static std::string compteurType(size_t estADN, size_t estARN, size_t OtherType);
 
+
+  /*A développer si temps
+  static bool isADN(char c);
+  static bool isARN(char c);
+  static std::string compteurType(size_t estADN, size_t estARN, size_t OtherType);
+*/
 
 };
 
 #endif
-/*
-Notes utiles :
-HERITAGES :
-virtual
-virtual =0
-*/
