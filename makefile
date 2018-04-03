@@ -8,6 +8,12 @@
 #	Ceci est le makefile afin de compiler le programme C++. Il permet de réaliser#
 #	quelques saves ainsi que de supprimer les fichiers link 										 #
 #																																							 #
+#Commandes : 																																	 #
+#-----------	 																																 #
+#	make																																				 #
+# make clean																																	 #
+# make save 																																	 #
+#																																							 #
 ################################################################################
 
 																#############
