@@ -39,8 +39,8 @@ endif
 
 #COMPILATION
 ############
-SOURCES=fasta.cpp main.cpp
-HEADERS=fasta.h
+SOURCES=fasta.cpp EncodedSeq.cpp main.cpp
+HEADERS=fasta.h EncodedSeq.cpp
 .SUFFIXES: .h .cpp .o
 
 .deps: $(SOURCES) $(HEADERS)

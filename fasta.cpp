@@ -1,4 +1,5 @@
 #include "fasta.h"
+#include "EncodedSeq.h"
 
 #include <iostream>
 #include <fstream>
@@ -73,7 +74,7 @@ string Fasta::getSequence(const string &myFile) {
 /*
 COMMENTAIRES :
 On utilise le principe de buffer. Le principe se rapproche de la fonction extraction qui est détaillée plus bas.
-On récupère donc la séqunce de notre fichier Fasta à l'aide de la position. On ne prend en paramètre qu'un lien vers notre fichier. 
+On récupère donc la séqunce de notre fichier Fasta à l'aide de la position. On ne prend en paramètre qu'un lien vers notre fichier.
 ________________________________________________________________________________
 */
 
@@ -222,6 +223,91 @@ COMMENTAIRES :
 Le principe ici est d'avoir des informations sur des nucléotides. isNucl nous permet de savoir si le nucléotide en paramètre est valide. On considère de base les nucléotides dégénérés dans l'appel de la fonction mais on peut changer la valeur à souhait.
 isBlank prend aussi un caractère en paramètre et permet d'identifier une absence de caractère ou un "Blank". Ce peut être un retour chariot (\n), une tabulation (\t) ou même un espace (' ').
 Les fonctions isADN et isARN ne sont pas encore développées et permettent de reconnaître une un nucléotide caractéristique de l'ADN ou de l'ARN.
+________________________________________________________________________________
+
+                      /////////////////////////////////
+                      //            Encoded          //
+                      /////////////////////////////////
+
+
+Fasta::Fasta(const string &header,const EncodedSeq &sequence){
+  setHeader(header);
+  setSequence(sequence);
+}
+EncodedSeq Fasta::getSequence() const{
+  return sequence;
+}
+void Fasta::setSequence(const EncodedSeq &sequence){
+  this->sequence = sequence;
+}
+EncodedSeq Fasta::inverseAdn(){
+  string res;
+  for(size_t i=0;i<this->sequence.size();i++){
+    switch (sequence[i]){
+      case 'A':
+      res+='T';
+      break;
+      case 'a':
+      res+='T';
+      break;
+      case 'T':
+      res+='A';
+      break;
+      case 't':
+      res+='A';
+      break;
+      case 'G':
+      res+='C';
+      break;
+      case 'g':
+      res+='C';
+      break;
+      case 'C':
+      res+='G';
+      break;
+      case 'c':
+      res+='G';
+      break;
+    }
+  }
+  EncodedSeq seq(res.c_str());
+  return seq;
+}
+EncodedSeq Fasta::inverseArn(){
+  string res;
+  for(size_t i=0;i<this->sequence.size();i++){
+    switch (sequence[i]){
+      case 'A':
+      res+='U';
+      break;
+      case 'U':
+      res+='A';
+      break;
+      case 'G':
+      res+='C';
+      break;
+      case 'C':
+      res+='G';
+      break;
+    }
+  }
+  EncodedSeq seq(res.c_str());
+  return seq;
+}
+EncodedSeq Fasta::reverse(){
+  string res;
+  size_t p = this->sequence.size()-1;
+  for(size_t i=0; i<this->sequence.size(); i++){
+    res+=this->sequence[p--];
+  }
+  EncodedSeq seq(res.c_str());
+  return seq;
+}
+*/
+
+/*
+COMMENTAIRES
+-------------
 ________________________________________________________________________________
 
                       /////////////////////////////////

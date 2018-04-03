@@ -1,4 +1,5 @@
 #include "fasta.h"
+#include "EncodedSeq.h"
 
 using namespace std;
 
@@ -37,7 +38,7 @@ int main(int argc, char** argv){
   while(checkExt==false){
     if (Fasta::isFasta(myFile)==false){
       cerr<<"Veuillez saisir un fichier qui a la bonne extension."<<endl;
-      string myFile=Fasta::nomFichier();
+      myFile=Fasta::nomFichier();
     }
     else{
       checkExt=true;

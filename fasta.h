@@ -78,6 +78,21 @@ public:
   static std::string compteurType(size_t estADN, size_t estARN, size_t OtherType);
 */
 
+/*
+================================================================================
+=                                 Encoded                                      =
+================================================================================
+
+
+
+Fasta(const std::string &header, const EncodedSeq &sequence);
+std::string EncodedSeq getSequence () const;
+void setSequence(const EncodedSeq &sequence);
+std::string EncodedSeq inverseAdn();
+std::string EncodedSeq inverseArn();
+std::string EncodedSeq reverse();
+*/
+
 };
 
 #endif
